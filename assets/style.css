@@ -372,6 +372,19 @@ img {
     box-shadow: 0 12px 30px rgba(0,0,0,0.06);
 }
 
+.soft-highlight {
+    background: linear-gradient(135deg, #f7fbff, #eef3ff);
+    border: 1px solid #dfe9fb;
+    box-shadow: 0 16px 36px rgba(42, 90, 169, 0.08);
+}
+
+.two-column-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
 .feature-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
