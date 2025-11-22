@@ -411,6 +411,62 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.map-wrapper {
+    display: grid;
+    gap: 10px;
+}
+
+.map-embed {
+    width: 100%;
+    min-height: 340px;
+    border-radius: 14px;
+    border: 1px solid #e8eef5;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    background: linear-gradient(120deg, #f6f9ff, #eef3ff);
+}
+
+.map-fallback {
+    display: none;
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e8eef5;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.map-fallback.show {
+    display: block;
+}
+
+.map-fallback iframe {
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+.map-fallback-note {
+    margin: 0;
+    padding: 10px 12px 14px;
+    background: #f4f7fb;
+    color: #3b4a5a;
+    font-size: 0.95rem;
+    border-top: 1px solid #e5edf7;
+}
+
+.map-tip {
+    margin-top: 12px;
+    color: #5f6b7a;
+    line-height: 1.6;
+}
+
+.map-info-window {
+    padding: 6px 10px;
+    color: #111827;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
 .process-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
