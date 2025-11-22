@@ -1,22 +1,127 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>서비스 안내</title>
-<link rel="stylesheet" href="assets/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>서비스 안내 - 선구재가복지센터</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css" />
+    <script defer src="assets/main.js"></script>
 </head>
 <body>
-<header class="sub-header">
-<a href="index.html"><img src="assets/logo.png" class="logo-img"></a>
-</header>
-<section class="section">
-<h2>서비스 안내</h2>
-<div class="service-list">
-<div id="care" class="service-item">✔ 방문요양 서비스</div>
-<div id="bath" class="service-item">✔ 방문목욕 서비스</div>
-<div class="service-item">✔ 정서지원 및 안전관리</div>
-</div>
-</section>
+    <!-- 모바일 사이드 메뉴 -->
+    <aside class="mobile-menu" id="mobileMenu" aria-label="모바일 메뉴">
+        <div class="close-btn" id="closeMenu" aria-label="모바일 메뉴 닫기">✕</div>
+        <ul>
+            <li><a href="index.html" class="home-link">홈</a></li>
+            <li><a href="about.html">센터소개</a></li>
+            <li><a href="greeting.html">인사말</a></li>
+            <li class="m-dropdown">
+                <a href="#">서비스 안내</a>
+                <div class="m-dropdown-menu">
+                    <a href="services.html#care">방문요양</a>
+                    <a href="services.html#bath">방문목욕</a>
+                </div>
+            </li>
+            <li><a href="location.html">오시는 길</a></li>
+            <li><a href="process.html">이용 절차</a></li>
+        </ul>
+    </aside>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-area">
+            <img src="assets/logo.png" class="logo-img" alt="선구재가복지센터 로고" />
+            <div class="logo-text">
+                <span class="center-name">선구재가복지센터</span>
+                <span class="tagline">지역사회와 함께하는 믿음직한 돌봄</span>
+            </div>
+        </div>
+        <nav class="nav" id="nav">
+            <div class="mobile-menu-btn" id="menuBtn" aria-label="모바일 메뉴 열기">☰</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="home-link">홈</a></li>
+                <li><a href="about.html">센터소개</a></li>
+                <li><a href="greeting.html">인사말</a></li>
+                <li class="dropdown">
+                    <a href="#">서비스 안내</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html#care">방문요양</a></li>
+                        <li><a href="services.html#bath">방문목욕</a></li>
+                    </ul>
+                </li>
+                <li><a href="location.html">오시는 길</a></li>
+                <li><a href="process.html">이용 절차</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-inner">
+                <span class="eyebrow">Services</span>
+                <h1>재가 서비스 안내</h1>
+                <p>어르신의 건강상태와 생활환경에 맞춘 방문요양·방문목욕 서비스를 제공합니다.</p>
+            </div>
+        </section>
+
+        <section class="section" id="care">
+            <div class="section-title">
+                <p class="eyebrow">Care</p>
+                <h2>방문요양</h2>
+                <p class="subtitle">일상생활 전반을 지원하며, 변화에 따라 유연하게 케어 플랜을 조정합니다.</p>
+            </div>
+            <div class="service-detail reveal">
+                <h3>주요 서비스</h3>
+                <p>식사·위생·청결 지원부터 말벗, 산책 동행, 병원 방문 동행까지 일상의 안전과 활력을 책임집니다.</p>
+                <ul class="pill-list">
+                    <li>개인위생 · 청결관리</li>
+                    <li>식사 준비 · 영양관리</li>
+                    <li>운동 · 재활 보조</li>
+                    <li>정서지원 · 말벗</li>
+                    <li>외출 · 병원 동행</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="bath">
+            <div class="section-title">
+                <p class="eyebrow">Bath</p>
+                <h2>방문목욕</h2>
+                <p class="subtitle">전용 장비와 2인 1조 체계로 안전하고 존엄한 목욕을 지원합니다.</p>
+            </div>
+            <div class="service-detail reveal">
+                <h3>주요 서비스</h3>
+                <p>목욕 카·침대와 방수 장비를 갖추고 체온 유지, 낙상 예방을 고려한 맞춤 목욕을 진행합니다.</p>
+                <ul class="pill-list">
+                    <li>위생 관리 및 청결 유지</li>
+                    <li>2인 1조 안전 케어</li>
+                    <li>피부·상처 상태 점검</li>
+                    <li>체온 유지 및 낙상 예방</li>
+                    <li>목욕 후 주변 정리</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <strong>선구재가복지센터</strong><br />
+                경기도 양평군 양평읍 시민로34번길 6-2, 201호<br />
+                TEL: 031-771-1689
+            </div>
+            <div class="footer-nav">
+                <a href="about.html">센터소개</a>
+                <a href="services.html">서비스 안내</a>
+                <a href="process.html">이용 절차</a>
+                <a href="location.html">오시는 길</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toTop" aria-label="맨 위로">▲</div>
 </body>
 </html>

@@ -313,6 +313,163 @@ img {
     background: rgba(255,255,255,0.18);
 }
 
+/* 서브 페이지 공통 */
+.page-hero {
+    background: linear-gradient(120deg, #1c9dd9, #1976d2);
+    color: #fff;
+    padding: 70px 20px 80px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.18), transparent 45%),
+                radial-gradient(circle at 80% 10%, rgba(255,255,255,0.12), transparent 40%);
+    pointer-events: none;
+}
+
+.page-hero .hero-inner {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.16);
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+}
+
+.page-hero h1 {
+    margin: 12px 0 10px;
+    font-size: 2.2rem;
+}
+
+.page-hero p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    opacity: 0.95;
+}
+
+.content-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid #e9eef5;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    padding: 0;
+    margin: 24px 0 0;
+    list-style: none;
+}
+
+.feature-list li {
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #f4f7fb;
+    border: 1px solid #e5edf7;
+    color: #3b4a5a;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.gallery-grid img,
+.map-img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e8eef5;
+}
+
+.map-card {
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+    margin: 24px 0 0;
+}
+
+.process-steps li {
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px 16px;
+    border: 1px solid #e9eef5;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.05);
+    font-weight: 600;
+    color: #1f2933;
+}
+
+.service-detail {
+    background: #fff;
+    border-radius: 18px;
+    padding: 26px;
+    border: 1px solid #e9eef5;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.service-detail h3 {
+    margin: 0;
+    color: #1976d2;
+}
+
+.service-detail p {
+    margin: 0;
+    color: #3b4a5a;
+    line-height: 1.7;
+}
+
+.pill-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pill-list li {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #eef5ff;
+    color: #1f4b99;
+    border: 1px solid #d6e6ff;
+    font-weight: 600;
+}
+
 /* 공통 섹션 */
 .section {
     max-width: 1180px;
