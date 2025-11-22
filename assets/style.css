@@ -445,6 +445,36 @@ img {
     border: 0;
 }
 
+.map-fallback-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 14px 4px;
+    background: #f9fbff;
+    border-top: 1px solid #e5edf7;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #eaf2ff, #f5f8ff);
+    color: #1f4b99;
+    font-weight: 700;
+    border: 1px solid #d8e4ff;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+.map-link.subtle {
+    background: #f4f7fb;
+    color: #2f3f52;
+    border-color: #e4ebf5;
+    font-weight: 600;
+}
+
 .map-fallback-note {
     margin: 0;
     padding: 10px 12px 14px;
