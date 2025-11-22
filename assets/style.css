@@ -1,6 +1,4 @@
-/* ===========================
-   기본
-=========================== */
+/* 기본 설정 */
 * {
     box-sizing: border-box;
 }
@@ -8,6 +6,8 @@
 body {
     margin: 0;
     font-family: "Noto Sans KR", sans-serif;
+    color: #1f2933;
+    background: #f5f7fb;
 }
 
 a {
@@ -15,43 +15,92 @@ a {
     color: inherit;
 }
 
-/* ===========================
-   Header (PC 전용)
-=========================== */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header */
 .header {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background: #1976d2;
-    color: #fff;
     position: sticky;
     top: 0;
     z-index: 999;
-}
-
-.logo-img {
-    width: 100%;
-    height: 145px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(90deg, #1976d2, #1c9dd9);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 12px;
 }
 
-/* PC 네비 */
+.logo-img {
+    height: 72px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.2;
+}
+
+.center-name {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 24px;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* 드롭다운 PC */
+.nav-menu a {
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    padding: 6px 4px;
+}
+
+.nav-menu a.active::after,
+.nav-menu a:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #ffe082;
+    border-radius: 2px;
+}
+
 .dropdown {
     position: relative;
 }
@@ -60,59 +109,60 @@ a {
     list-style: none;
     background: #fff;
     padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
+    border-radius: 10px;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
+    min-width: 180px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     display: none;
-    min-width: 170px;
-    z-index: 9999;
+    color: #1f2933;
+    overflow: hidden;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 18px;
+    font-weight: 500;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* ===========================
-   모바일 메뉴 버튼
-=========================== */
+/* 모바일 메뉴 버튼 */
 .mobile-menu-btn {
     display: none;
     font-size: 2rem;
     cursor: pointer;
 }
 
-/* ===========================
-   모바일 오른쪽 사이드 메뉴
-=========================== */
+/* 모바일 사이드 메뉴 */
 .mobile-menu {
     position: fixed;
     top: 0;
-    right: -260px;           /* 👉 오른쪽에서 숨겨진 상태 */
+    right: -280px;
     width: 260px;
     height: 100vh;
     background: #1976d2;
     color: white;
     padding: 25px;
-    transition: right 0.35s ease;  /* 왼쪽이 아니라 오른쪽 */
+    transition: right 0.35s ease;
     z-index: 99999;
+    box-shadow: -4px 0 16px rgba(0,0,0,0.18);
 }
 
-/* 메뉴 열림 */
 .mobile-menu.open {
-    right: 0;                /* 👉 오른쪽에서 슬라이드 인 */
+    right: 0;
 }
 
-/* 닫기 버튼 */
 .mobile-menu .close-btn {
-    font-size: 2rem;
+    font-size: 1.9rem;
     cursor: pointer;
     text-align: right;
     margin-bottom: 25px;
 }
 
-/* 메뉴 리스트 */
 .mobile-menu ul {
     list-style: none;
     padding: 0;
@@ -120,19 +170,15 @@ a {
 
 .mobile-menu li {
     padding: 14px 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-/* 링크 기본 */
 .mobile-menu a {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-
-/* ===========================
-   모바일 드롭다운 (아코디언)
-=========================== */
 .m-dropdown > a::after {
     content: "▼";
     float: right;
@@ -158,99 +204,342 @@ a {
     font-size: 1rem;
 }
 
-/* ===========================
-   Hero 슬라이더
-=========================== */
+/* Hero 슬라이더 */
 .hero-slider {
     position: relative;
-    height: 60vh;
+    height: 70vh;
+    min-height: 520px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-slider img {
-    width: 100%;
-    height: 60vh;
-    object-fit: cover;
+.slides {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .slide {
-    display: none;
-}
-
-.slide-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 2.6rem;
-    font-weight: bold;
-    text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-/* ================================
-   Intro Section
-================================ */
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25));
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 780px;
+    padding: 0 24px;
+    color: #fff;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin: 12px 0;
+    line-height: 1.3;
+}
+
+.hero-content .subtitle {
+    font-size: 1.15rem;
+    opacity: 0.92;
+    line-height: 1.7;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+}
+
+.btn.primary {
+    background: #ffe082;
+    color: #0f172a;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+.btn.ghost {
+    border-color: rgba(255,255,255,0.7);
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+.btn.ghost:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+/* 공통 섹션 */
+.section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 70px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    margin: 10px 0 6px;
+    color: #0f172a;
+}
+
+.section-title .subtitle {
+    margin: 0;
+    color: #52606d;
+    line-height: 1.7;
+}
+
+/* Intro */
 .section.intro {
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 20px;
     text-align: center;
 }
 
 .section.intro h2 {
-    font-size: 2rem;
     color: #1976d2;
-    margin-bottom: 20px;
 }
 
 .section.intro p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #444;
-}
-
-
-/* ================================
-   3단 서비스 카드
-================================ */
-.service-summary {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 50px 20px;
-}
-
-.card {
-    flex: 1;
-    max-width: 300px;
-    background: #ffffff;
-    padding: 30px 25px;
-    border-radius: 12px;
     font-size: 1.1rem;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    color: #333;
-    font-weight: 500;
+    line-height: 1.8;
+    color: #3b4a5a;
 }
 
+/* Metrics */
+.metrics {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: -50px;
+}
 
-/* ================================
-   Footer
-================================ */
-.footer {
-    background: #f8f8f8;
-    padding: 35px;
-    text-align: center;
-    font-size: 1rem;
-    color: #555;
-    margin-top: 50px;
+.metric-card {
+    background: #fff;
+    padding: 22px 20px;
+    border-radius: 16px;
+    border: 1px solid #e9eef5;
+}
+
+.metric-label {
+    font-size: 0.95rem;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+.metric-card strong {
+    display: block;
+    margin: 10px 0 6px;
+    font-size: 1.3rem;
+}
+
+.metric-card p {
+    margin: 0;
+    color: #52606d;
+}
+
+.shadow {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+/* Services */
+.service-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.card.highlight {
+    background: #fff;
+    padding: 26px 24px;
+    border-radius: 18px;
+    border: 1px solid #e9eef5;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.highlight:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+}
+
+.icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #e3f2fd;
+    display: grid;
+    place-items: center;
+    font-size: 1.4rem;
+    color: #1976d2;
+}
+
+.card h3 {
+    margin: 6px 0;
+    font-size: 1.3rem;
+}
+
+.card p {
+    margin: 0;
+    color: #52606d;
     line-height: 1.6;
 }
 
-/* ===========================
-   Scroll Top Button
-=========================== */
+.card .link {
+    margin-top: auto;
+    color: #1976d2;
+    font-weight: 700;
+}
+
+/* Roles */
+.roles .role-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.role-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 16px;
+    background: #fff;
+    border: 1px solid #e9eef5;
+    border-radius: 16px;
+}
+
+.role-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1976d2;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.role-item h3 {
+    margin: 0 0 6px;
+}
+
+.role-item p {
+    margin: 0;
+    color: #52606d;
+    line-height: 1.6;
+}
+
+/* Callout */
+.callout-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(120deg, #1976d2, #1c9dd9);
+    color: #fff;
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.callout-card h2 {
+    margin: 8px 0 6px;
+}
+
+.callout-card .subtitle {
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+
+.callout-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Footer */
+.footer {
+    background: #0f172a;
+    color: #d9e2ec;
+    padding: 28px 20px;
+    margin-top: 70px;
+}
+
+.footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    align-items: center;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 14px;
+}
+
+.footer-nav a {
+    color: #e0f2fe;
+    font-weight: 600;
+}
+
+/* Scroll Top */
 #toTop {
     position: fixed;
     right: 20px;
@@ -270,28 +559,19 @@ a {
     opacity: 1;
 }
 
-/* ===========================
-   반응형
-=========================== */
-@media (max-width: 900px) {
-        .section.intro h2 {
-        font-size: 1.7rem;
+/* 반응형 */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
     }
 
-    .section.intro p {
-        font-size: 1rem;
-    }
-
-    .service-summary {
+    .callout-card {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
+}
 
-    .card {
-        width: 90%;
-        max-width: 100%;
-    }
-
+@media (max-width: 900px) {
     .nav-menu {
         display: none;
     }
@@ -300,4 +580,25 @@ a {
         display: block;
     }
 
+    .hero-slider {
+        height: 60vh;
+    }
+
+    .logo-img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .metrics {
+        margin-top: 10px;
+    }
+
+    .callout-actions {
+        justify-content: flex-start;
+    }
 }
