@@ -986,7 +986,7 @@ img {
 
 .footer-contact {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
 }
 
@@ -1043,6 +1043,75 @@ img {
 .footer-nav a:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 640px) {
+    body {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .section {
+        padding: 60px 18px;
+    }
+
+    .card.highlight {
+        padding: 20px 18px;
+        gap: 10px;
+    }
+
+    .icon-circle {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+
+    .footer {
+        padding: 32px 16px 28px;
+    }
+
+    .footer-inner {
+        gap: 22px;
+    }
+
+    .footer-heading {
+        gap: 10px;
+    }
+
+    .footer-logo {
+        width: 52px;
+        height: 52px;
+        padding: 8px;
+    }
+
+    .footer-name {
+        font-size: 1rem;
+    }
+
+    .footer-contact {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .contact-item {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .footer-nav {
+        align-items: flex-start;
+        text-align: left;
+        gap: 6px;
+    }
+
+    .footer-links {
+        gap: 8px;
+    }
+
+    .footer-nav a {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 768px) {
