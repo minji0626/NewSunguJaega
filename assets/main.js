@@ -80,10 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll(".card, .role-item, .metric-card, .callout-card").forEach(el => {
-        el.classList.add("reveal");
-        observer.observe(el);
-    });
+    document.querySelectorAll(".reveal, .card, .role-item, .metric-card, .callout-card, .content-card, .service-detail, .map-card")
+        .forEach(el => {
+            if (!el.classList.contains("reveal")) {
+                el.classList.add("reveal");
+            }
+            observer.observe(el);
+        });
 
     /* 카카오 지도 초기화 (API 키가 입력된 경우) */
     const mapContainer = document.getElementById("kakaoMap");
