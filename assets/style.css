@@ -3,11 +3,22 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #1976d2;
+    --primary-2: #1c9dd9;
+    --accent: #ffe082;
+    --ink: #1f2933;
+    --muted: #5f6b7a;
+    --card: #fff;
+    --border: #e9eef5;
+    --bg: #f5f7fb;
+}
+
 body {
     margin: 0;
     font-family: "Noto Sans KR", sans-serif;
-    color: #1f2933;
-    background: #f5f7fb;
+    color: var(--ink);
+    background: var(--bg);
 }
 
 a {
@@ -568,6 +579,72 @@ img {
     border: 1px solid #d6e6ff;
     font-weight: 600;
 }
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 12px;
+}
+
+.icon-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eaf2ff, #f7fbff);
+    color: #0f4fa8;
+    font-size: 1.2rem;
+    box-shadow: 0 10px 26px rgba(25, 118, 210, 0.12);
+    border: 1px solid #dfe8f7;
+}
+
+.icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    gap: 12px;
+}
+
+.icon-list li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding: 12px 14px;
+    background: #f7f9fd;
+    border: 1px solid #e7eef7;
+    border-radius: 14px;
+}
+
+.label {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(25, 118, 210, 0.1);
+    color: #0f4fa8;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.glow-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-card::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at 30% 20%, rgba(28, 157, 217, 0.14), transparent 45%),
+                radial-gradient(circle at 80% 10%, rgba(255, 224, 130, 0.2), transparent 38%);
+    z-index: 0;
+}
+
+.glow-card > * { position: relative; z-index: 1; }
 
 /* 공통 섹션 */
 .section {

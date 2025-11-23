@@ -58,25 +58,48 @@
         <section class="section">
             <div class="content-card map-card reveal">
                 <div>
-                    <h2>센터 주소</h2>
+                    <div class="section-heading">
+                        <span class="icon-badge" aria-hidden="true">📍</span>
+                        <div>
+                            <h2 style="margin:0;">센터 주소</h2>
+                            <p class="subtitle" style="margin:6px 0 0;">정확한 주소 기반으로 카카오 지도를 바로 확인하세요.</p>
+                        </div>
+                    </div>
                     <p>경기도 양평군 용문면 용문로 323, 2층</p>
-                    <ul class="feature-list">
-                        <li>전화: 031-771-1689</li>
-                        <li>근무시간: 평일 09:00 ~ 18:00</li>
-                        <li>자가용 이용 시 건물 내·주변 주차장 이용</li>
-                        <li>카카오맵에서 “선구재가복지센터” 검색 후 길찾기 이용</li>
+                    <ul class="icon-list">
+                        <li>
+                            <span class="icon-badge" aria-hidden="true">📞</span>
+                            <div>
+                                <strong>전화</strong>
+                                <p>031-771-1689</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon-badge" aria-hidden="true">⏰</span>
+                            <div>
+                                <strong>근무시간</strong>
+                                <p>평일 09:00 ~ 18:00</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon-badge" aria-hidden="true">🚗</span>
+                            <div>
+                                <strong>주차 안내</strong>
+                                <p>자가용 이용 시 건물 내·주변 주차장 이용</p>
+                            </div>
+                        </li>
                     </ul>
-                    <p class="map-tip">상단 네비게이션과 함께 다른 페이지에서도 동일한 안내를 확인할 수 있습니다.</p>
+                    <p class="map-tip">주소를 기준으로 지도와 길찾기를 제공하며, 검색 결과의 위치 오차 없이 확인할 수 있습니다.</p>
                 </div>
                 <div class="map-wrapper">
-                    <div id="kakaoMap" class="map-embed" data-address="경기도 양평군 용문면 용문로 323, 2층" data-title="선구재가복지센터" data-kakao-app-key="YOUR_APP_KEY"></div>
+                    <div id="kakaoMap" class="map-embed" data-address="경기도 양평군 용문면 용문로 323, 2층" data-title="선구재가복지센터" data-kakao-app-key="955f6631974929bbdb7f5e7e2a3cc510"></div>
                     <div id="mapFallback" class="map-fallback">
                         <iframe title="카카오맵" src="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" allowfullscreen loading="lazy"></iframe>
                         <div class="map-fallback-links">
                             <a class="map-link" href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" target="_blank" rel="noopener">카카오맵 새 창에서 보기</a>
                             <a class="map-link subtle" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" target="_blank" rel="noopener">네이버지도에서 길찾기</a>
                         </div>
-                        <p class="map-fallback-note">API 키를 등록하면 상단 지도에서 바로 위치를 확인할 수 있습니다. 카카오 지도 스크립트를 사용할 때 개발자 도구에 표시되는 소스맵 404 로그는 기능에 영향을 주지 않는 알려진 현상입니다.</p>
+                        <p class="map-fallback-note">API 키를 등록하면 상단 지도에서 바로 위치를 확인할 수 있습니다. 지도 로드가 어려울 경우 아래 외부 지도 링크로 길찾기를 이용해 주세요.</p>
                     </div>
                 </div>
             </div>
