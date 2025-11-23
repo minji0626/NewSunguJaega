@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const fallback = document.getElementById("mapFallback");
         const appKey = mapContainer.dataset.kakaoAppKey;
         const address = mapContainer.dataset.address;
+        const searchAddress = (address || "").split(",")[0].trim() || address;
+
+        let mapInitialized = false;
 
         const showFallback = () => {
             if (mapContainer) mapContainer.style.display = "none";
@@ -105,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!kakao?.maps || !kakao?.maps?.services) return showFallback();
 
             const geocoder = new kakao.maps.services.Geocoder();
-            geocoder.addressSearch(address, (result, status) => {
+            geocoder.addressSearch(searchAddress, (result, status) => {
                 if (status !== kakao.maps.services.Status.OK || !result?.length) {
                     showFallback();
                     return;
@@ -122,6 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     content: `<div class="map-info-window">${title}</div>`
                 });
                 info.open(map, marker);
+
+                mapInitialized = true;
+                mapContainer.style.display = "block";
+                fallback?.classList.remove("show");
             });
         };
 
@@ -133,6 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
             script.onload = initMap;
             script.onerror = showFallback;
             document.head.appendChild(script);
+
+            setTimeout(() => {
+                if (!mapInitialized) {
+                    showFallback();
+                }
+            }, 5000);
         } else {
             showFallback();
         }
