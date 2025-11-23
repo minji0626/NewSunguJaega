@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-	<meta charset="utf-8"/>
-	<title>Kakao 지도 시작하기</title>
+    <meta charset="utf-8" />
+    <title>Kakao 지도 예제</title>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 20px; background: #f6f7fb; }
+        h1 { margin: 0 0 12px; }
+        #map { width: 100%; max-width: 720px; height: 420px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; }
+        .note { margin-top: 12px; color: #555; line-height: 1.6; }
+        code { background: #eef2ff; padding: 2px 6px; border-radius: 6px; }
+    </style>
 </head>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=955f6631974929bbdb7f5e7e2a3cc510&libraries=LIBRARY"></script>
 <body>
-	<div id="map" style="width:500px;height:400px;"></div>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
+    <h1>카카오 지도 로딩 예제</h1>
+    <div id="map" role="region" aria-label="지도"></div>
+    <p class="note">
+        아래 코드는 <code>DOMContentLoaded</code> 이후에 지도 컨테이너를 찾고, Kakao SDK가 로드된 다음 <code>kakao.maps.load</code> 안에서 지도를 초기화합니다.<br>
+        사용 중인 앱 키가 등록된 도메인(예: <code>http://localhost:포트</code>)에서 열어야 지도가 정상적으로 표시됩니다.
+    </p>
 
-		var map = new kakao.maps.Map(container, options);
-	</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("map");
+            const appKey = "955f6631974929bbdb7f5e7e2a3cc510"; // 발급받은 앱 키로 교체 후, 허용 도메인에서 실행하세요.
+
+            if (!container) return;
+
+            const loadSdk = () => {
+                const script = document.createElement("script");
+                script.src = `https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&libraries=services&appkey=${appKey}`;
+                script.async = true;
+                script.defer = true;
+                script.onload = initMap;
+                script.onerror = () => alert("지도 스크립트 로드에 실패했습니다. 앱 키와 도메인을 확인하세요.");
+                document.head.appendChild(script);
+            };
+
+            const initMap = () => {
+                if (!window.kakao?.maps) return;
+                kakao.maps.load(() => {
+                    const coords = new kakao.maps.LatLng(33.450701, 126.570667);
+                    const map = new kakao.maps.Map(container, { center: coords, level: 3 });
+                    const marker = new kakao.maps.Marker({ position: coords });
+                    marker.setMap(map);
+                });
+            };
+
+            loadSdk();
+        });
+    </script>
 </body>
 </html>
