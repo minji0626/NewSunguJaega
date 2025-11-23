@@ -43,13 +43,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* 내비게이션 활성화 표시 */
-    const current = (location.pathname.split("/").pop() || "index.html").split("#")[0];
+    const currentPath = (() => {
+        const parts = location.pathname.split("/").filter(Boolean);
+        const last = parts.pop() || "index";
+        return last.replace(/\.html$/i, "");
+    })();
+
+    const normalizeHref = href => {
+        if (!href || /^https?:/i.test(href)) return null;
+        const base = href.split("#")[0]
+            .replace(/^\.\//, "")
+            .replace(/^\//, "")
+            .replace(/\.html$/i, "")
+            .replace(/\/$/, "");
+        return base || "index";
+    };
+
     const setActive = selector => {
         document.querySelectorAll(selector).forEach(link => {
-            const href = (link.getAttribute("href") || "").split("#")[0];
-            if (!href) return;
-            const normalized = href === "./" ? "index.html" : href;
-            if (normalized === current || (normalized === "index.html" && current === "")) {
+            const normalized = normalizeHref(link.getAttribute("href"));
+            if (!normalized) return;
+            if (normalized === currentPath) {
                 link.classList.add("active");
             }
         });
