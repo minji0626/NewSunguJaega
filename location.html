@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=eurikx1zl0" defer></script>
     <script defer src="assets/main.js"></script>
 </head>
 <body>
@@ -62,7 +63,7 @@
                         <span class="icon-badge" aria-hidden="true">📍</span>
                         <div>
                             <h2 style="margin:0;">센터 주소</h2>
-                            <p class="subtitle" style="margin:6px 0 0;">정확한 주소 기반으로 카카오 지도를 바로 확인하세요.</p>
+                            <p class="subtitle" style="margin:6px 0 0;">정확한 주소 기반으로 네이버 지도를 바로 확인하세요.</p>
                         </div>
                     </div>
                     <p>경기도 양평군 용문면 용문로 323, 2층</p>
@@ -92,15 +93,14 @@
                     <p class="map-tip">주소를 기준으로 지도와 길찾기를 제공하며, 검색 결과의 위치 오차 없이 확인할 수 있습니다.</p>
                 </div>
                 <div class="map-wrapper">
-                    <div id="kakaoMap" class="map-embed" data-address="경기도 양평군 용문면 용문로 323, 2층" data-title="선구재가복지센터" data-kakao-app-key="955f6631974929bbdb7f5e7e2a3cc510"></div>
-                    <div id="mapFallback" class="map-fallback">
-                        <iframe title="카카오맵" src="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" allowfullscreen loading="lazy"></iframe>
-                        <div class="map-fallback-links">
-                            <a class="map-link" href="https://map.kakao.com/?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" target="_blank" rel="noopener">카카오맵 새 창에서 보기</a>
-                            <a class="map-link subtle" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%96%91%ED%8F%89%EA%B5%B0%20%EC%9A%A9%EB%AC%B8%EB%A9%B4%20%EC%9A%A9%EB%AC%B8%EB%A1%9C%20323%2C%202%EC%B8%B5" target="_blank" rel="noopener">네이버지도에서 길찾기</a>
-                        </div>
-                        <p class="map-fallback-note">API 키를 등록하면 상단 지도에서 바로 위치를 확인할 수 있습니다. 지도 로드가 어려울 경우 아래 외부 지도 링크로 길찾기를 이용해 주세요.</p>
-                    </div>
+                    <div
+                        id="naverMap"
+                        class="map-embed"
+                        data-lat="37.482342"
+                        data-lng="127.590738"
+                        data-title="선구재가복지센터"
+                        aria-label="네이버 지도"
+                    ></div>
                 </div>
             </div>
         </section>

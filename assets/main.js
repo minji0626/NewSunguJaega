@@ -88,53 +88,44 @@ document.addEventListener("DOMContentLoaded", () => {
             observer.observe(el);
         });
 
-    /* 카카오 지도 초기화 (API 키가 입력된 경우) */
-    const mapContainer = document.getElementById("kakaoMap");
-    if (mapContainer) {
-        const fallback = document.getElementById("mapFallback");
-        const appKey = mapContainer.dataset.kakaoAppKey;
-        const address = mapContainer.dataset.address;
+    /* 네이버 지도 초기화 */
+    const naverMapEl = document.getElementById("naverMap");
+    if (naverMapEl && window.naver?.maps) {
+        const lat = parseFloat(naverMapEl.dataset.lat || "0");
+        const lng = parseFloat(naverMapEl.dataset.lng || "0");
+        const title = naverMapEl.dataset.title || "위치";
 
-        const showFallback = () => {
-            if (mapContainer) mapContainer.style.display = "none";
-            fallback?.classList.add("show");
-        };
+        const position = new naver.maps.LatLng(lat, lng);
+        const map = new naver.maps.Map(naverMapEl, {
+            center: position,
+            zoom: 16,
+            zoomControl: true,
+            zoomControlOptions: {
+                position: naver.maps.Position.TOP_RIGHT,
+            },
+        });
 
-        const initMap = () => {
-            const { kakao } = window;
-            if (!kakao?.maps || !kakao?.maps?.services) return showFallback();
+        const marker = new naver.maps.Marker({
+            position,
+            map,
+        });
 
-            const geocoder = new kakao.maps.services.Geocoder();
-            geocoder.addressSearch(address, (result, status) => {
-                if (status !== kakao.maps.services.Status.OK || !result?.length) {
-                    showFallback();
-                    return;
-                }
+        const infoWindow = new naver.maps.InfoWindow({
+            content: `
+                <div style="padding:10px;font-size:14px;line-height:1.5;">
+                    <strong>${title}</strong><br>
+                    경기도 양평군 용문면 용문로 323, 2층
+                </div>
+            `,
+            borderWidth: 0,
+            disableAnchor: true,
+            backgroundColor: "#fff",
+        });
 
-                const { x, y } = result[0];
-                const coords = new kakao.maps.LatLng(y, x);
-                const map = new kakao.maps.Map(mapContainer, { center: coords, level: 3 });
-                const marker = new kakao.maps.Marker({ position: coords });
-                marker.setMap(map);
+        naver.maps.Event.addListener(marker, "click", () => {
+            infoWindow.open(map, marker);
+        });
 
-                const title = mapContainer.dataset.title || "위치";
-                const info = new kakao.maps.InfoWindow({
-                    content: `<div class="map-info-window">${title}</div>`
-                });
-                info.open(map, marker);
-            });
-        };
-
-        if (appKey && appKey !== "YOUR_APP_KEY") {
-            const script = document.createElement("script");
-            script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${appKey}&libraries=services`;
-            script.async = true;
-            script.defer = true;
-            script.onload = initMap;
-            script.onerror = showFallback;
-            document.head.appendChild(script);
-        } else {
-            showFallback();
-        }
+        infoWindow.open(map, marker);
     }
 });
